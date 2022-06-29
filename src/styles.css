@@ -1,0 +1,117 @@
+body {
+  font-family: "Rosarivo", serif;
+}
+li {
+  color: #756c83;
+  list-style: none;
+  display: block;
+  margin: 0 auto;
+}
+ul {
+  padding: 0;
+}
+img {
+  margin: 15px;
+}
+h1 {
+  margin: 20px 0;
+  font-size: 45px;
+}
+.search {
+  text-align: right;
+  margin-bottom: 20px;
+  display: inline;
+}
+.container {
+  max-width: 60em;
+  margin: 50px auto;
+  padding: 20px;
+  color: white;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 5px;
+  border-color: white;
+  border: 2px solid;
+}
+.main-body {
+  text-align: center;
+}
+.search-place {
+  padding: 4px 15px;
+  border-radius: 8px;
+  border-color: unset;
+  box-shadow: 2px 5px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.ok-button {
+  padding: 4px 15px;
+  margin: 0 10px;
+  border-radius: 4px;
+  border-color: unset;
+  box-shadow: 2px 5px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.ok-button:hover {
+  box-shadow: 2px 5px 2px 1px rgba(0, 0, 0, 0.2);
+  background: #dedae5;
+  transition: all 200ms ease-in-out;
+}
+.card-body {
+  padding: 15px;
+}
+.card-body:hover {
+  background-color: #dedae5;
+}
+
+.MaxMin {
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+.temperature {
+  padding: 0;
+}
+.day {
+  font-size: 18px;
+}
+.compas {
+  width: 120px;
+}
+.wind {
+  margin: 0 auto;
+}
+.container {
+  background-color: rgba(94, 83, 83, 0.4);
+}
+#centr-sun {
+  padding-left: 0;
+  text-align: center;
+}
+#temperatureNow {
+  font-size: 50px;
+}
+#units {
+  font-size: 20px;
+  position: relative;
+  top: -20px;
+  text-decoration: none;
+}
+#background-img {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  max-width: 100%;
+  min-height: 100%;
+  z-index: -5;
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+}
+#btn-current {
+  position: relative;
+  top: -4px;
+  padding: 4px 15px;
+  margin: 0 5px;
+  border-radius: 4px;
+  box-shadow: 2px 5px 2px 1px rgba(0, 0, 0, 0.2);
+}
+#city-form {
+  text-align: right;
+}

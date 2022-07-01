@@ -85,6 +85,12 @@ function displayWeatherCondition(response) {
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.main.feels_like
   );
+  document.querySelector("#max-temperature").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
+  document.querySelector("#min-temperature").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
 }
 
 function search(city) {

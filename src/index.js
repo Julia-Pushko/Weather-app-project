@@ -3,6 +3,9 @@ let now = new Date();
 
 let h5 = document.querySelector("h5");
 let currentDate = now.getDate();
+if (currentDate < 10) {
+  currentDate = `0${currentDate}`;
+}
 let year = now.getFullYear();
 let minutes = now.getMinutes();
 if (minutes < 10) {
@@ -90,6 +93,11 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#min-temperature").innerHTML = Math.round(
     response.data.main.temp_min
+  );
+  let iconElement = document.querySelector("#current-weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
 

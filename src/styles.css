@@ -79,6 +79,13 @@ h1 {
 .wind {
   margin: 0 auto;
 }
+.temperature .active {
+  color: white;
+  cursor: default;
+}
+.temperature .active:hover {
+  text-decoration: none;
+}
 #centr-sun {
   padding-left: 0;
   text-align: center;

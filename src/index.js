@@ -34,7 +34,6 @@ let months = [
 ];
 let month = months[now.getMonth()];
 h5.innerHTML = `${day}, ${hours}:${minutes}, ${month} ${currentDate}/${year}`;
-
 //task 2
 
 // function formSubmit(event) {
@@ -49,36 +48,14 @@ h5.innerHTML = `${day}, ${hours}:${minutes}, ${month} ${currentDate}/${year}`;
 // let searchingForm = document.querySelector("#search-form");
 // searchingForm.addEventListener("submit", formSubmit);
 
-//task 3
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperatureNow");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperatureNow");
-  temperatureElement.innerHTML = 26;
-}
-
-let celsiuslink = document.querySelector("#celsius-link");
-celsiuslink.addEventListener("click", convertToCelsius);
-
 //Search engine
 
 function displayWeatherCondition(response) {
-  console.log(response);
+  celsiusTemperature = response.data.main.temp;
+
+  document.querySelector("#temperatureNow").innerHTML =
+    Math.round(celsiusTemperature);
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperatureNow").innerHTML = Math.round(
-    response.data.main.temp
-  );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -114,6 +91,34 @@ function handleSubmit(event) {
 }
 let searchingForm = document.querySelector("#search-form");
 searchingForm.addEventListener("submit", handleSubmit);
+
+//task From Celsius to Fahrenheit and back
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperatureNow");
+  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+
+  celsiuslink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperatureNow");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  celsiuslink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
+
+let celsiuslink = document.querySelector("#celsius-link");
+celsiuslink.addEventListener("click", convertToCelsius);
+
+let celsiusTemperature = null;
 
 search("Kyiv");
 

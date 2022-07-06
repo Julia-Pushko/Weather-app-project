@@ -76,8 +76,10 @@ h1 {
 .compas {
   width: 120px;
 }
-.wind {
-  margin: 0 auto;
+.description {
+  margin-top: 18px;
+  text-align: left;
+  padding-left: 100px;
 }
 .temperature .active {
   color: white;

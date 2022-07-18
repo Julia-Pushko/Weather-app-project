@@ -47,6 +47,34 @@ h5.innerHTML = `${day}, ${hours}:${minutes}, ${month} ${currentDate}/${year}`;
 
 // let searchingForm = document.querySelector("#search-form");
 // searchingForm.addEventListener("submit", formSubmit);
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+                <div class="card">
+                  <div class="card-body">
+                    <ul>
+                      <li class="day">${day}</li>
+                      <li class="img"><img src="img/sun1.svg" alt="" /></li>
+                      <li class="day-temperature"><strong> 28°</strong>⁄25°</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
 
 //Search engine
 
@@ -121,8 +149,6 @@ celsiuslink.addEventListener("click", convertToCelsius);
 
 let celsiusTemperature = null;
 
-search("Kyiv");
-
 //Adding button "Current" and using geolocation.
 function showPosition(position) {
   let apiKey = "30d625d03dd23e91996028ac924ded11";
@@ -139,3 +165,6 @@ function getCurrentLocation(event) {
 
 let currentLocationButton = document.querySelector("#btn-current");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+search("Kyiv");
+displayForecast();

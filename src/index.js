@@ -47,7 +47,9 @@ h5.innerHTML = `${day}, ${hours}:${minutes}, ${month} ${currentDate}/${year}`;
 
 // let searchingForm = document.querySelector("#search-form");
 // searchingForm.addEventListener("submit", formSubmit);
-function displayForecast() {
+
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -76,7 +78,13 @@ function displayForecast() {
   console.log(forecastHTML);
 }
 
-//Search engine
+//Search engine and forecast
+
+function getForecast(coordinates) {
+  let apiKey = "30d625d03dd23e91996028ac924ded11";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayWeatherCondition(response) {
   celsiusTemperature = response.data.main.temp;
@@ -104,7 +112,8 @@ function displayWeatherCondition(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  console.log(response);
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -167,4 +176,3 @@ let currentLocationButton = document.querySelector("#btn-current");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 search("Kyiv");
-displayForecast();

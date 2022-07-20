@@ -11,7 +11,7 @@ ul {
   padding: 0;
 }
 img {
-  margin: 15px;
+  margin: 3px;
 }
 h1 {
   margin: 20px 0;
@@ -57,7 +57,7 @@ h1 {
   transition: all 200ms ease-in-out;
 }
 .card-body {
-  padding: 15px;
+  padding: 5px;
 }
 .card-body:hover {
   background-color: #dedae5;
@@ -71,7 +71,7 @@ h1 {
   padding: 0;
 }
 .day {
-  font-size: 18px;
+  font-size: 21px;
 }
 .compas {
   width: 120px;
